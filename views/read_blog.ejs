@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future of Web Development - SkyBlog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter bg-gradient-to-br from-sky-100 via-blue-50 to-indigo-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <button onclick="goBack()" class="mr-4 text-gray-600 hover:text-sky-600 transition-colors">
+                        ← Back
+                    </button>
+                    <!-- <h1 class="text-2xl font-bold text-sky-600">SkyBlog</h1> -->
+                    <h1 class="text-2xl font-bold text-sky-600"><a href="index.html">SkyBlog</a></h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="text-gray-700 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#" class="text-gray-700 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="#" class="text-gray-700 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Categories</a>
+                        <a href="#" class="text-gray-700 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                <button class="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                    Write Post
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <span class="bg-sky-100 text-sky-600 px-4 py-2 rounded-full text-sm font-medium">Technology</span>
+                    <span class="text-gray-500 text-sm ml-4">March 15, 2024 • 8 min read</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
+                    The Future of Web Development: Trends to Watch
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Explore the latest trends shaping the future of web development, from AI integration to progressive web apps and the technologies that will define the next decade.
+                </p>
+            </div>
+            
+            <!-- Author Info -->
+            <div class="flex items-center justify-center mb-8">
+                <div class="flex items-center bg-white/70 backdrop-blur-sm rounded-full px-6 py-4 shadow-lg">
+                    <div class="w-12 h-12 bg-sky-200 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-sky-600 font-bold">JS</span>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">John Smith</p>
+                        <p class="text-sm text-gray-600">Senior Developer & Tech Writer</p>
+                    </div>
+                    <button class="ml-6 bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        Follow
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="bg-gradient-to-br from-sky-200 via-blue-200 to-indigo-200 rounded-2xl h-64 md:h-96 flex items-center justify-center shadow-lg mb-8">
+                <div class="text-center">
+                    <span class="text-8xl mb-4 block">🚀</span>
+                    <p class="text-sky-800 font-medium text-lg">The Future is Now</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <article class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-8 md:p-12 mb-12">
+            <div class="prose prose-lg max-w-none">
+                <p class="text-gray-700 leading-relaxed mb-6 text-lg">
+                    The web development landscape is evolving at an unprecedented pace. As we move through 2024, several key trends are reshaping how we build, deploy, and interact with web applications. From artificial intelligence integration to the rise of edge computing, developers need to stay ahead of these transformative changes.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">1. AI-Powered Development Tools</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Artificial intelligence is no longer just a buzzword—it's becoming an integral part of the development process. Tools like GitHub Copilot, ChatGPT, and specialized AI coding assistants are revolutionizing how developers write code, debug applications, and solve complex problems.
+                </p>
+                <div class="bg-sky-50 border-l-4 border-sky-400 p-6 my-6 rounded-r-lg">
+                    <p class="text-sky-800 italic">
+                        "AI tools are not replacing developers; they're amplifying our capabilities and allowing us to focus on higher-level problem-solving and creative solutions."
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">2. The Rise of Edge Computing</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Edge computing is bringing computation closer to users, reducing latency and improving performance. Platforms like Cloudflare Workers, Vercel Edge Functions, and AWS Lambda@Edge are making it easier than ever to deploy code at the edge.
+                </p>
+                <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                    <li>Reduced latency for global applications</li>
+                    <li>Better performance for dynamic content</li>
+                    <li>Improved user experience across different regions</li>
+                    <li>Cost-effective scaling solutions</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">3. Progressive Web Apps (PWAs) Evolution</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    PWAs continue to bridge the gap between web and native applications. With improved browser support and new capabilities, PWAs are becoming more powerful and app-like than ever before.
+                </p>
+
+                <div class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-6 my-8">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Key PWA Features in 2024:</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-3">📱</span>
+                            <span class="text-gray-700">App-like experiences</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-3">⚡</span>
+                            <span class="text-gray-700">Lightning-fast loading</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-3">🔄</span>
+                            <span class="text-gray-700">Offline functionality</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-3">🔔</span>
+                            <span class="text-gray-700">Push notifications</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">4. WebAssembly (WASM) Mainstream Adoption</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    WebAssembly is finally reaching mainstream adoption, enabling high-performance applications in the browser. From gaming to data visualization, WASM is opening new possibilities for web applications.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">5. Micro-Frontends Architecture</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    As applications grow in complexity, micro-frontends are becoming a popular architectural pattern. This approach allows teams to work independently on different parts of an application while maintaining a cohesive user experience.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Looking Ahead</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    The future of web development is bright and full of possibilities. As these trends continue to evolve, developers who stay curious and adaptable will be best positioned to create the next generation of web experiences.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    What excites you most about the future of web development? Share your thoughts in the comments below, and don't forget to follow for more insights into the ever-evolving world of technology.
+                </p>
+            </div>
+        </article>
+
+        <!-- Article Actions -->
+        <div class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg p-6 mb-8">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center space-x-4">
+                    <button class="flex items-center space-x-2 bg-sky-100 hover:bg-sky-200 text-sky-600 px-4 py-2 rounded-lg transition-colors">
+                        <span>👍</span>
+                        <span class="font-medium">Like (42)</span>
+                    </button>
+                    <button class="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-lg transition-colors">
+                        <span>💬</span>
+                        <span class="font-medium">Comment (8)</span>
+                    </button>
+                    <button class="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-lg transition-colors">
+                        <span>🔗</span>
+                        <span class="font-medium">Share</span>
+                    </button>
+                </div>
+                <button class="flex items-center space-x-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-600 px-4 py-2 rounded-lg transition-colors">
+                    <span>🔖</span>
+                    <span class="font-medium">Bookmark</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <section class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg p-6 md:p-8 mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">Comments (8)</h3>
+            
+            <!-- Comment Form -->
+            <div class="mb-8">
+                <textarea 
+                    placeholder="Share your thoughts about this article..." 
+                    class="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent resize-none"
+                    rows="3"
+                ></textarea>
+                <div class="flex justify-end mt-3">
+                    <button class="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                        Post Comment
+                    </button>
+                </div>
+            </div>
+
+            <!-- Comments List -->
+            <div class="space-y-6">
+                <!-- Comment 1 -->
+                <div class="flex space-x-4">
+                    <div class="w-10 h-10 bg-purple-200 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span class="text-purple-600 font-medium text-sm">AM</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-medium text-gray-800">Alice Miller</h4>
+                                <span class="text-sm text-gray-500">2 hours ago</span>
+                            </div>
+                            <p class="text-gray-700">Great article! I'm particularly excited about the WebAssembly developments. We've been experimenting with it for our data visualization tools and the performance improvements are incredible.</p>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-4">
+                            <button class="text-sm text-gray-500 hover:text-sky-600 transition-colors">👍 Like (3)</button>
+                            <button class="text-sm text-gray-500 hover:text-sky-600 transition-colors">Reply</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comment 2 -->
+                <div class="flex space-x-4">
+                    <div class="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span class="text-green-600 font-medium text-sm">MJ</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-medium text-gray-800">Mike Johnson</h4>
+                                <span class="text-sm text-gray-500">4 hours ago</span>
+                            </div>
+                            <p class="text-gray-700">The section on AI-powered development tools really resonates with me. I've been using GitHub Copilot for the past few months and it's genuinely changed how I approach coding problems.</p>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-4">
+                            <button class="text-sm text-gray-500 hover:text-sky-600 transition-colors">👍 Like (7)</button>
+                            <button class="text-sm text-gray-500 hover:text-sky-600 transition-colors">Reply</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comment 3 -->
+                <div class="flex space-x-4">
+                    <div class="w-10 h-10 bg-orange-200 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span class="text-orange-600 font-medium text-sm">SD</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-medium text-gray-800">Sarah Davis</h4>
+                                <span class="text-sm text-gray-500">6 hours ago</span>
+                            </div>
+                            <p class="text-gray-700">Micro-frontends are definitely something we're considering for our next project. The ability to have independent teams working on different parts sounds amazing for scaling development.</p>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-4">
+                            <button class="text-sm text-gray-500 hover:text-sky-600 transition-colors">👍 Like (2)</button>
+                            <button class="text-sm text-gray-500 hover:text-sky-600 transition-colors">Reply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-6">
+                <button class="text-sky-600 hover:text-sky-700 font-medium">Load More Comments</button>
+            </div>
+        </section>
+
+        <!-- Related Articles -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold text-gray-800 mb-8">Related Articles</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Related Article 1 -->
+                <article class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
+                    <div class="h-32 bg-gradient-to-br from-purple-200 to-pink-200 flex items-center justify-center">
+                        <span class="text-3xl">🎨</span>
+                    </div>
+                    <div class="p-4">
+                        <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded-full text-xs font-medium">Design</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-2 mb-2 group-hover:text-sky-600 transition-colors">
+                            Modern UI Design Principles
+                        </h4>
+                        <p class="text-gray-600 text-xs mb-3">Learn the essential principles that make modern interfaces...</p>
+                        <button class="text-sky-600 hover:text-sky-700 text-xs font-medium">Read More →</button>
+                    </div>
+                </article>
+
+                <!-- Related Article 2 -->
+                <article class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
+                    <div class="h-32 bg-gradient-to-br from-green-200 to-emerald-200 flex items-center justify-center">
+                        <span class="text-3xl">🚀</span>
+                    </div>
+                    <div class="p-4">
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs font-medium">Startup</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-2 mb-2 group-hover:text-sky-600 transition-colors">
+                            Building Your First SaaS Product
+                        </h4>
+                        <p class="text-gray-600 text-xs mb-3">A comprehensive guide to launching your software...</p>
+                        <button class="text-sky-600 hover:text-sky-700 text-xs font-medium">Read More →</button>
+                    </div>
+                </article>
+
+                <!-- Related Article 3 -->
+                <article class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
+                    <div class="h-32 bg-gradient-to-br from-blue-200 to-indigo-200 flex items-center justify-center">
+                        <span class="text-3xl">🔧</span>
+                    </div>
+                    <div class="p-4">
+                        <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-xs font-medium">Tools</span>
+                        <h4 class="text-sm font-semibold text-gray-800 mt-2 mb-2 group-hover:text-sky-600 transition-colors">
+                            Essential Developer Tools 2024
+                        </h4>
+                        <p class="text-gray-600 text-xs mb-3">Discover the must-have tools and extensions...</p>
+                        <button class="text-sky-600 hover:text-sky-700 text-xs font-medium">Read More →</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/60 backdrop-blur-md border-t border-sky-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold text-sky-600 mb-4">SkyBlog</h3>
+                    <p class="text-gray-600 mb-4">A beautiful platform for sharing stories, insights, and connecting with fellow writers and readers.</p>
+                    <div class="flex space-x-4">
+                        <button class="w-10 h-10 bg-sky-100 hover:bg-sky-200 text-sky-600 rounded-full flex items-center justify-center transition-colors">
+                            <span class="text-sm font-bold">f</span>
+                        </button>
+                        <button class="w-10 h-10 bg-sky-100 hover:bg-sky-200 text-sky-600 rounded-full flex items-center justify-center transition-colors">
+                            <span class="text-sm font-bold">t</span>
+                        </button>
+                        <button class="w-10 h-10 bg-sky-100 hover:bg-sky-200 text-sky-600 rounded-full flex items-center justify-center transition-colors">
+                            <span class="text-sm font-bold">in</span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-sky-600 transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sky-600 transition-colors">Write for Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sky-600 transition-colors">Categories</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sky-600 transition-colors">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-sky-600 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sky-600 transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sky-600 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sky-600 transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-sky-100 mt-8 pt-8 text-center">
+                <p class="text-gray-600">&copy; 2024 SkyBlog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Back button functionality
+        function goBack() {
+            window.history.back();
+        }
+
+        // Like button functionality
+        const likeBtn = document.querySelector('button:has(span:contains("👍"))');
+        let isLiked = false;
+        let likeCount = 42;
+
+        if (likeBtn) {
+            likeBtn.addEventListener('click', function() {
+                isLiked = !isLiked;
+                if (isLiked) {
+                    likeCount++;
+                    this.classList.remove('bg-sky-100', 'hover:bg-sky-200', 'text-sky-600');
+                    this.classList.add('bg-sky-500', 'text-white');
+                } else {
+                    likeCount--;
+                    this.classList.remove('bg-sky-500', 'text-white');
+                    this.classList.add('bg-sky-100', 'hover:bg-sky-200', 'text-sky-600');
+                }
+                this.querySelector('span:last-child').textContent = `Like (${likeCount})`;
+            });
+        }
+
+        // Bookmark functionality
+        const bookmarkBtn = document.querySelector('button:has(span:contains("🔖"))');
+        let isBookmarked = false;
+
+        if (bookmarkBtn) {
+            bookmarkBtn.addEventListener('click', function() {
+                isBookmarked = !isBookmarked;
+                if (isBookmarked) {
+                    this.classList.remove('bg-yellow-100', 'hover:bg-yellow-200', 'text-yellow-600');
+                    this.classList.add('bg-yellow-500', 'text-white');
+                    this.querySelector('span:last-child').textContent = 'Bookmarked';
+                } else {
+                    this.classList.remove('bg-yellow-500', 'text-white');
+                    this.classList.add('bg-yellow-100', 'hover:bg-yellow-200', 'text-yellow-600');
+                    this.querySelector('span:last-child').textContent = 'Bookmark';
+                }
+            });
+        }
+
+        // Comment functionality
+        const commentForm = document.querySelector('textarea');
+        const postCommentBtn = document.querySelector('button:contains("Post Comment")');
+
+        if (postCommentBtn && commentForm) {
+            postCommentBtn.addEventListener('click', function() {
+                const commentText = commentForm.value.trim();
+                if (commentText) {
+                    // Simulate posting comment
+                    this.textContent = 'Posting...';
+                    setTimeout(() => {
+                        this.textContent = 'Post Comment';
+                        commentForm.value = '';
+                        alert('Comment posted successfully!');
+                    }, 1000);
+                }
+            });
+        }
+
+        // Comment like functionality
+        document.querySelectorAll('button:contains("👍 Like")').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const currentText = this.textContent;
+                const match = currentText.match(/\((\d+)\)/);
+                if (match) {
+                    const currentCount = parseInt(match[1]);
+                    const newCount = currentCount + 1;
+                    this.textContent = currentText.replace(/\(\d+\)/, `(${newCount})`);
+                    this.classList.add('text-sky-600');
+                }
+            });
+        });
+
+        // Share functionality
+        const shareBtn = document.querySelector('button:has(span:contains("🔗"))');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'The Future of Web Development: Trends to Watch',
+                        text: 'Check out this amazing article about web development trends!',
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback for browsers that don't support Web Share API
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        alert('Link copied to clipboard!');
+                    });
+                }
+            });
+        }
+
+        // Follow button functionality
+        const followBtn = document.querySelector('button:contains("Follow")');
+        let isFollowing = false;
+
+        if (followBtn) {
+            followBtn.addEventListener('click', function() {
+                isFollowing = !isFollowing;
+                if (isFollowing) {
+                    this.textContent = 'Following';
+                    this.classList.remove('bg-sky-500', 'hover:bg-sky-600');
+                    this.classList.add('bg-green-500', 'hover:bg-green-600');
+                } else {
+                    this.textContent = 'Follow';
+                    this.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    this.classList.add('bg-sky-500', 'hover:bg-sky-600');
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a55a4114da799a',t:'MTc1NDM4NzAzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
