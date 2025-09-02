@@ -53,6 +53,40 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.post("/login", (req, res) => {
+  const { email, password } = req.body;
+  // console.log(email, password);
+
+  if (!email || !password) {
+    return res.status(400).send("All fields are required");
+  }
+
+  db.query(
+    `SELECT * FROM username WHERE email = ?`,
+    [email],
+    async (err, result) => {
+      if (err) {
+        console.error("Error fetching user:", err);
+        return res.status(404).send("Invalid email or password");
+      }
+
+      if (
+        result.length &&
+        (await bcrypt.compare(password, result[0].password))
+      ) {
+        req.session.user = result[0].email;
+        console.log("User logged in successfully", result[0]);
+        console.log("Session user :", req.session.user);
+
+        res.redirect("/blogs");
+      } else {
+        console.log("Invalid password for user :", email);
+        return res.status(404).send("Invalid password");
+      }
+    }
+  );
+});
+
 router.get("/blogs", (req, res) => {
   res.render("read_blog");
 });
