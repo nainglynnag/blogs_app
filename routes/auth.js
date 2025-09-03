@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const db = require("../db");
 
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { user: req.session.user });
 });
 
 router.get("/register", (req, res) => {
@@ -85,10 +85,6 @@ router.post("/login", (req, res) => {
       }
     }
   );
-});
-
-router.get("/blogs", (req, res) => {
-  res.render("read_blog");
 });
 
 module.exports = router;

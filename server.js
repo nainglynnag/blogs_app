@@ -42,6 +42,7 @@ app.use(
 
 // Route for Authentication
 app.use("/", require("./routes/auth"));
+app.use("/blogs", require("./routes/blogs"));
 
 // >> Start Server
 app.listen(port, () => {
