@@ -76,6 +76,7 @@ router.post("/login", (req, res) => {
       ) {
         req.session.user = result[0].email;
         console.log("User logged in successfully", result[0]);
+        console.log("Session ID :", req.session.id);
         console.log("Session user :", req.session.user);
 
         res.redirect("/blogs");
@@ -85,6 +86,12 @@ router.post("/login", (req, res) => {
       }
     }
   );
+});
+
+router.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    res.redirect("/login");
+  });
 });
 
 module.exports = router;

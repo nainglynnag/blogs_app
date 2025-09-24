@@ -78,6 +78,7 @@
               Preview
             </button>
             <button
+              type="submit"
               id="publishBtn"
               class="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
             >
@@ -106,6 +107,7 @@
         class="space-y-6"
         action="/blogs/post_blog"
         method="POST"
+        enctype="multipart/form-data"
       >
         <!-- Title Input -->
         <div class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg p-6">
@@ -473,6 +475,7 @@
           </button>
           <button
             type="submit"
+            id="publishPostBtn"
             class="bg-sky-500 hover:bg-sky-600 text-white px-8 py-3 rounded-lg font-medium transition-colors"
           >
             Publish Post
@@ -516,6 +519,8 @@
               Publish Post
             </button>
           </div>
+
+          <!-- <input type="hidden" name="hiddenContent" id="hiddenContent" /> -->
         </div>
       </div>
     </div>
@@ -708,15 +713,15 @@
 
       // Placeholder functionality for contenteditable
       // Use a defined placeholder text and clear/show it reliably.
-      const PLACEHOLDER_TEXT = "Start writing your article...";
+      // const PLACEHOLDER_TEXT = "Start writing your article...";
 
-      function setPlaceholder() {
-        contentEditor.innerHTML = `<p class="placeholder" style="color: #9ca3af; margin:0;">${PLACEHOLDER_TEXT}</p>`;
-      }
+      // function setPlaceholder() {
+      //   contentEditor.innerHTML = `<p class="placeholder" style="color: #9ca3af; margin:0;">${PLACEHOLDER_TEXT}</p>`;
+      // }
 
-      function isShowingPlaceholder() {
-        return contentEditor.textContent.trim() === PLACEHOLDER_TEXT;
-      }
+      // function isShowingPlaceholder() {
+      //   return contentEditor.textContent.trim() === PLACEHOLDER_TEXT;
+      // }
 
       contentEditor.addEventListener("focus", function () {
         if (isShowingPlaceholder()) {
@@ -727,7 +732,7 @@
 
       contentEditor.addEventListener("blur", function () {
         if (this.textContent.trim() === "") {
-          setPlaceholder();
+          // setPlaceholder();
           updateWordCount();
         }
       });
@@ -901,13 +906,16 @@
 
           setTimeout(() => {
             alert("🎉 Your post has been published successfully!");
-            localStorage.removeItem("blogDraft");
+            // localStorage.removeItem("blogDraft");
             publishBtn.textContent = originalText;
             publishBtn.disabled = false;
           }, 2000);
 
           // Submit form
-          this.submit();
+          // document.getElementById("hiddenContent").value =
+          //   contentEditor.innerHTML;
+          postForm.submit();
+          // this.submit();
         });
 
       // Publish from preview
