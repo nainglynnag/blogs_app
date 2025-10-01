@@ -186,11 +186,13 @@
             >
               Tech
             </button>
+
             <button
               class="text-gray-600 hover:text-sky-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
             >
               Design
             </button>
+
             <button
               class="text-gray-600 hover:text-sky-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
             >
@@ -200,84 +202,52 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Blog Post 1 -->
+          <% blogs.forEach(function(blog) { %>
           <article
             class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
           >
             <div
               class="h-48 bg-gradient-to-br from-purple-200 to-pink-200 flex items-center justify-center"
             >
-              <span class="text-5xl">🎨</span>
+              <% if (blog.blog_image) { %>
+              <img
+                src="/uploads/<%= blog.blog_image %>"
+                alt="<%= blog.blog_title %>"
+                class="w-full h-full object-cover"
+              />
+              <% } else { %>
+              <span class="text-4xl">📝</span>
+              <% } %>
             </div>
             <div class="p-6">
-              <div class="flex items-center mb-3">
+              <div class="flex justify-between items-center mb-3">
                 <span
                   class="bg-purple-100 text-purple-600 px-2 py-1 rounded-full text-xs font-medium"
-                  >Design</span
+                  ><%= blog.category_title %></span
                 >
-                <span class="text-gray-500 text-xs ml-3">March 12, 2024</span>
+                <span class="text-gray-500 text-xs ml-3"
+                  ><%= blog.blog_datetime.toLocaleDateString() %></span
+                >
               </div>
               <h4
                 class="text-lg font-semibold text-gray-800 mb-3 group-hover:text-sky-600 transition-colors"
               >
-                Modern UI Design Principles
+                <%= blog.blog_title %>
               </h4>
-              <p class="text-gray-600 text-sm mb-4">
-                Learn the essential principles that make modern interfaces both
-                beautiful and functional...
-              </p>
+              <p class="text-gray-600 text-sm mb-4"><%= blog.blog_detail %>.</p>
               <div class="flex items-center justify-between">
                 <div class="flex items-center">
                   <div
                     class="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center"
                   >
-                    <span class="text-purple-600 text-xs font-medium">AM</span>
+                    <span class="text-purple-600 text-xs font-medium"
+                      ><%= blog.blog_author.split(" ").map((word) =>
+                      word.charAt(0)).join("").toUpperCase() %></span
+                    >
                   </div>
-                  <span class="text-sm text-gray-600 ml-2">Alice Miller</span>
-                </div>
-                <button
-                  class="text-sky-600 hover:text-sky-700 text-sm font-medium"
-                >
-                  Read →
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Blog Post 2 -->
-          <article
-            class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-green-200 to-emerald-200 flex items-center justify-center"
-            >
-              <span class="text-5xl">🚀</span>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center mb-3">
-                <span
-                  class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs font-medium"
-                  >Startup</span
-                >
-                <span class="text-gray-500 text-xs ml-3">March 10, 2024</span>
-              </div>
-              <h4
-                class="text-lg font-semibold text-gray-800 mb-3 group-hover:text-sky-600 transition-colors"
-              >
-                Building Your First SaaS Product
-              </h4>
-              <p class="text-gray-600 text-sm mb-4">
-                A comprehensive guide to launching your software as a service
-                business from scratch...
-              </p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div
-                    class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center"
+                  <span class="text-sm text-gray-600 ml-2"
+                    ><%= blog.blog_author %></span
                   >
-                    <span class="text-green-600 text-xs font-medium">MJ</span>
-                  </div>
-                  <span class="text-sm text-gray-600 ml-2">Mike Johnson</span>
                 </div>
                 <button
                   class="text-sky-600 hover:text-sky-700 text-sm font-medium"
@@ -287,182 +257,7 @@
               </div>
             </div>
           </article>
-
-          <!-- Blog Post 3 -->
-          <article
-            class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center"
-            >
-              <span class="text-5xl">☕</span>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center mb-3">
-                <span
-                  class="bg-orange-100 text-orange-600 px-2 py-1 rounded-full text-xs font-medium"
-                  >Lifestyle</span
-                >
-                <span class="text-gray-500 text-xs ml-3">March 8, 2024</span>
-              </div>
-              <h4
-                class="text-lg font-semibold text-gray-800 mb-3 group-hover:text-sky-600 transition-colors"
-              >
-                Work-Life Balance for Developers
-              </h4>
-              <p class="text-gray-600 text-sm mb-4">
-                Tips and strategies for maintaining a healthy balance between
-                coding and personal life...
-              </p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div
-                    class="w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center"
-                  >
-                    <span class="text-orange-600 text-xs font-medium">SD</span>
-                  </div>
-                  <span class="text-sm text-gray-600 ml-2">Sarah Davis</span>
-                </div>
-                <button
-                  class="text-sky-600 hover:text-sky-700 text-sm font-medium"
-                >
-                  Read →
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Blog Post 4 -->
-          <article
-            class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-blue-200 to-indigo-200 flex items-center justify-center"
-            >
-              <span class="text-5xl">🔧</span>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center mb-3">
-                <span
-                  class="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-xs font-medium"
-                  >Tools</span
-                >
-                <span class="text-gray-500 text-xs ml-3">March 5, 2024</span>
-              </div>
-              <h4
-                class="text-lg font-semibold text-gray-800 mb-3 group-hover:text-sky-600 transition-colors"
-              >
-                Essential Developer Tools 2024
-              </h4>
-              <p class="text-gray-600 text-sm mb-4">
-                Discover the must-have tools and extensions that will boost your
-                productivity this year...
-              </p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div
-                    class="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center"
-                  >
-                    <span class="text-blue-600 text-xs font-medium">RW</span>
-                  </div>
-                  <span class="text-sm text-gray-600 ml-2">Robert Wilson</span>
-                </div>
-                <button
-                  class="text-sky-600 hover:text-sky-700 text-sm font-medium"
-                >
-                  Read →
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Blog Post 5 -->
-          <article
-            class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-teal-200 to-cyan-200 flex items-center justify-center"
-            >
-              <span class="text-5xl">📱</span>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center mb-3">
-                <span
-                  class="bg-teal-100 text-teal-600 px-2 py-1 rounded-full text-xs font-medium"
-                  >Mobile</span
-                >
-                <span class="text-gray-500 text-xs ml-3">March 3, 2024</span>
-              </div>
-              <h4
-                class="text-lg font-semibold text-gray-800 mb-3 group-hover:text-sky-600 transition-colors"
-              >
-                React Native vs Flutter 2024
-              </h4>
-              <p class="text-gray-600 text-sm mb-4">
-                An in-depth comparison of the two leading cross-platform mobile
-                development frameworks...
-              </p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div
-                    class="w-8 h-8 bg-teal-200 rounded-full flex items-center justify-center"
-                  >
-                    <span class="text-teal-600 text-xs font-medium">LB</span>
-                  </div>
-                  <span class="text-sm text-gray-600 ml-2">Lisa Brown</span>
-                </div>
-                <button
-                  class="text-sky-600 hover:text-sky-700 text-sm font-medium"
-                >
-                  Read →
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Blog Post 6 -->
-          <article
-            class="bg-white/70 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-yellow-200 to-amber-200 flex items-center justify-center"
-            >
-              <span class="text-5xl">💡</span>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center mb-3">
-                <span
-                  class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-xs font-medium"
-                  >Tips</span
-                >
-                <span class="text-gray-500 text-xs ml-3">March 1, 2024</span>
-              </div>
-              <h4
-                class="text-lg font-semibold text-gray-800 mb-3 group-hover:text-sky-600 transition-colors"
-              >
-                10 JavaScript Performance Tips
-              </h4>
-              <p class="text-gray-600 text-sm mb-4">
-                Simple yet effective techniques to optimize your JavaScript code
-                for better performance...
-              </p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div
-                    class="w-8 h-8 bg-yellow-200 rounded-full flex items-center justify-center"
-                  >
-                    <span class="text-yellow-600 text-xs font-medium">DT</span>
-                  </div>
-                  <span class="text-sm text-gray-600 ml-2">David Taylor</span>
-                </div>
-                <button
-                  class="text-sky-600 hover:text-sky-700 text-sm font-medium"
-                >
-                  Read →
-                </button>
-              </div>
-            </div>
-          </article>
+          <% }) %>
         </div>
 
         <!-- Load More Button -->

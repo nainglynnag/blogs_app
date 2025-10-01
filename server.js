@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
 
+const path = require("path");
+
 const port = process.env.PORT || 3000;
 
 // >> Middleware
@@ -21,6 +23,8 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // >> Routes
 

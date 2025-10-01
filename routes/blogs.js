@@ -63,7 +63,8 @@ function isLoggedIn(req, res, next) {
   }
 }
 
-router.get("/", isLoggedIn, (req, res) => {
+// Show a single blog read view (moved to /read to avoid conflict with listing route)
+router.get("/read", isLoggedIn, (req, res) => {
   res.render("read_blog", { user: req.session.user });
 });
 
@@ -139,5 +140,31 @@ router.post(
     );
   }
 );
+
+// List all blogs — mounted at /blogs when this router is used via app.use('/blogs', ...)
+router.get("/", isLoggedIn, (req, res) => {
+  // const [rows] = db.query(`SELECT * FROM blog`);
+  // console.log(rows);
+  // res.render("blogs", { user: req.session.user, blogs: rows });
+
+  db.query(
+    `
+      SELECT b.*, u.first_name, u.last_name, c.category_title
+      FROM blog b
+      LEFT JOIN username u ON b.iduser = u.iduser
+      LEFT JOIN category c ON b.idcategory = c.idcategory
+      ORDER BY idblog DESC;
+    `,
+    (err, results) => {
+      if (err) {
+        console.error("Error fetching blogs:", err);
+        return res.status(500).send("Internal Server Error");
+      }
+      console.log("Fetched blogs successfully :", results);
+
+      res.render("index", { user: req.session.user, blogs: results });
+    }
+  );
+});
 
 module.exports = router;
