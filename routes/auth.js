@@ -4,7 +4,26 @@ const bcrypt = require("bcrypt");
 const db = require("../db");
 
 router.get("/", (req, res) => {
-  res.render("index", { user: req.session.user });
+  // res.render("index", { user: req.session.user, blogs: [] });
+
+  db.query(
+    `
+      SELECT b.*, u.first_name, u.last_name, c.category_title
+      FROM blog b
+      LEFT JOIN username u ON b.iduser = u.iduser
+      LEFT JOIN category c ON b.idcategory = c.idcategory
+      ORDER BY idblog DESC;
+    `,
+    (err, results) => {
+      if (err) {
+        console.error("Error fetching blogs:", err);
+        return res.status(500).send("Internal Server Error");
+      }
+      console.log("Fetched blogs successfully :", results);
+
+      res.render("index", { user: req.session.user, blogs: results });
+    }
+  );
 });
 
 router.get("/register", (req, res) => {

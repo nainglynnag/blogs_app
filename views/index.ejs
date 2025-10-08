@@ -201,6 +201,7 @@
           </div>
         </div>
 
+        <% if ( blogs.length > 0) { %>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <% blogs.forEach(function(blog) { %>
           <article
@@ -268,6 +269,9 @@
             Load More Posts
           </button>
         </div>
+        <% } else { %>
+        <div>No posts found</div>
+        <% } %>
       </section>
     </main>
 
